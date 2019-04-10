@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Xma and Beatz</title>
+        <meta name="author" content="Richie itz" />
+        <meta name="date" content="april 11" />
+        <script type="text/javascript" src="https://unpkg.com/unmute" data-add-button="true"></script>
+        <script src="js/ToneR11.js"></script>
+        <script src="js/nexusUI-v1.js"></script>
+        
+        <style>
+            body, html {
+                width: 100%;
+                height: 100%;
+                background-color: rgb(105,105,105);
+                font-family:'impact';
+                color: white;
+                
+            }
+        img{
+            
+            border-color: rgb(120,120,120);
+            border-style: outset;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            
+     
+            
+            }
+        .tab {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 30px;
+            text-align:center;
+            width: 29%;
+            font-family:'impact';
+            
+            
+            
+        }
+        
+        #Header1:hover{
+            background-color: rgb(120,120,120);
+        }
+        #Header2:hover{
+            background-color: rgb(120,120,120);
+        }
+        #Header3:hover{
+            background-color: rgb(120,120,120);
+        }
+        
+        a:link {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            color: hotpink;
+        }
+        a:visited {
+            color: white;
+        }
+        
+     
+        iframe {
+            float: center;
+            margin-top: 30px;
+        }
+        
+        div#videos {
+            float: top;
+            
+           
+            font-size: 3em;
+        }
+        
+        
+        p#description {
+            background-color: rgb(200,200,200);
+            font-family: sans-serif;
+            font-size: 200%;
+            text-align:center;
+        }
+        
+        div#controlsArea {
+            width: 45%;
+            height: 70%;
+            margin-top: 70px;
+            position: absolute;
+        }
+        
+        
+        canvas[nx="meter"] {
+            height: 80%;
+            width: 10%;
+            
+        }
+        
+        
+        canvas[nx="toggle"] {
+            height: 20%;
+            width: 30%;
+            position:absolute;
+        }
+        
+        canvas[nx="slider"] {
+            height: 80%;
+            width: 10%;
+        }
+        
+        canvas[nx="slider"] {
+            height: 80%;
+            width: 10%;
+        }
+        
+        
+        
+      
+        
+            </style>
+        
+    </head>
+    <body id="mainBody" width="100%" height="100%">
+        
+        
+        <div class="Title-Image">
+            <img src="TitlePG.png" alt="Xma N Beatz" border="10" style="width:950px;">
+                </div>
+        
+        <div id="Header1" class="tab">
+            <a href="index.html">Looper</a>
+        </div>
+        <div id="Header2" class="tab">
+            
+            <a href="Learn.html">Learn</a>
+        </div>
+        <div id="Header3" class="tab">
+            <a href="MPC.html">MPC</a>
+        </div>
+        
+        
+        <div id="videos" width="100%">
+            <iframe width="940" height="630" src="https://www.youtube.com/embed/Vi8e9jmIUU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+        </div>
+        <h1> Need Inspiration?</h1>
+        <div id="videos" width="100%">
+            <iframe width="940" height="630" src="https://www.youtube.com/embed/iP-86de-oUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+        </div>
+       
+        
+        <div id="Header1" class="tab">
+            <a href="index.html">Looper</a>
+        </div>
+        <div id="Header2" class="tab">
+            
+            <a href="Learn.html">Learn</a>
+        </div>
+        <div id="Header3" class="tab">
+            <a href="Learn.html">MPC</a>
+        </div>
+        
+        
+        <script>
+            
+            
+        var Loop1 = new Tone.Player("BoomBap_Loop_Drums.wav");
+        Loop1.loop = true;
+        Loop1.connect(Tone.Master);
+        var Loop2 = new Tone.Player("Funk_Party_Loop_Drums.wav");
+        Loop2.loop = true;
+        Loop2.connect(Tone.Master);
+        var Loop3 = new Tone.Player("Big_Julian_Loop_Drums.wav");
+        Loop3.loop = true;
+        Loop3.connect(Tone.Master);
+        var Loop4 = new Tone.Player("Ghostwriter_Loop_Drums.wav");
+        Loop4.loop = true;
+        Loop4.connect(Tone.Master);
+        var Loop5 = new Tone.Player("Hot_Pants_Loop_Drums.wav");
+        Loop5.loop = true;
+        Loop5.connect(Tone.Master);
+        var Loop6 = new Tone.Player("Full_Clip_Loop_Drums.wav");
+        Loop6.loop = true;
+        Loop6.connect(Tone.Master);
+        var Loop7 = new Tone.Player("Brap_Beat_Loop_Drums.wav");
+        Loop7.loop = true;
+        Loop7.connect(Tone.Master);
+        var Loop8 = new Tone.Player("That_Sound_Loop_Drums.wav");
+        Loop8.loop = true;
+        Loop8.connect(Tone.Master);
+        /*
+         // loads Loops 9-16
+         var Loop9 = new Tone.Player("BoomBap_Loop_Drums.wav");
+         Loop9.loop = true;
+         Loop9.connect(Tone.Master);
+         var Loop10 = new Tone.Player("Funk_Party_Loop_Drums.wav");
+         Loop10.loop = true;
+         Loop10.connect(Tone.Master);
+         var Loop11 = new Tone.Player("Big_Julian_Loop_Drums.wav");
+         Loop11.loop = true;
+         Loop11.connect(Tone.Master);
+         var Loop12 = new Tone.Player("Ghostwriter_Loop_Drums.wav");
+         Loop12.loop = true;
+         Loop12.connect(Tone.Master);
+         var Loop13 = new Tone.Player("Hot_Pants_Loop_Drums.wav");
+         Loop13.loop = true;
+         Loop13.connect(Tone.Master);
+         var Loop14 = new Tone.Player("Full_Clip_Loop_Drums.wav");
+         Loop14.loop = true;
+         Loop14.connect(Tone.Master);
+         var Loop15 = new Tone.Player("Brap_Beat_Loop_Drums.wav");
+         Loop15.loop = true;
+         Loop15.connect(Tone.Master);
+         var Loop16 = new Tone.Player("That_Sound_Loop_Drums.wav");
+         Loop16.loop = true;
+         Loop16.connect(Tone.Master);
+         */
+        
+      
+      
+        
+        
+            
+      
+            </script>
+        
+    </body>
+</html>
+
+
+

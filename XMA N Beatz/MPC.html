@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html>
+    <title>ToneJS and NexusUI</title>
+    <meta name="author" content="Phill Phelps" />
+    <meta name="date" content="January 12th 2017" />
+    
+    <script src="js/ToneR11.js"></script>
+    <script src="js/nexusUI-v1.js"></script>
+    
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(105,105,105);
+        }
+    
+    img{
+        border-color: rgb(120,120,120);
+        border-style: outset;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tab {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 30px;
+        text-align:center;
+        width: 29%;
+        font-family:'impact';
+        margin-left: auto;
+    }
+    
+    #Header1:hover{
+        background-color: rgb(120,120,120);
+    }
+    #Header2:hover{
+        background-color: rgb(120,120,120);
+    }
+    #Header3:hover{
+        background-color: rgb(120,120,120);
+    }
+    
+    a:link {
+        text-decoration: none;
+        color: white;
+    }
+    a:hover {
+        color: hotpink;
+    }
+    a:visited {
+        color: white;
+    }
+    div#controlsArea {
+        width: 45%;
+        height: 70%;
+        margin-top: 70px;
+        position: absolute;
+    }
+    
+    canvas {
+        display: block;
+        float: left;
+    }
+    
+    canvas[nx="meter"] {
+        height: 80%;
+        width: 10%;
+    }
+    
+    canvas[nx="vinyl"] {
+        height: 80%;
+        width: 40%;
+    }
+    
+    
+    canvas[nx="slider"] {
+        height: 80%;
+        width: 10%;
+    }
+    canvas[nx="toggle"] {
+        height: 20%;
+        width: 30%;
+        position:absolute;
+    }
+    div#padArea {
+        float: top;
+        height: 1000px;
+        margin-top: 70px;
+        background-color: rgb(211,211,211);
+        left: 30% ;
+        position: absolute;
+        font-family: 'impact';
+        border-color: rgb(190,190,190);
+        border-style: outset;
+        
+    }
+    div#audioElements {
+        visibility: hidden;
+        
+    }
+    div#lowerpads {
+        margin-top:10px;
+    }
+    div#lower2pads {
+        margin-top:10px;
+    }
+    div#lower3pads {
+        margin-top:10px;
+    }
+    div#pad2Area{
+        float: top;
+        height: 70%;
+        margin-top: 10px;
+        background-color: rgb(211,211,211);
+        left: 30% ;
+        position: absolute;
+        font-family: 'impact';
+        border-color: rgb(190,190,190);
+        border-style: outset;
+        margin-top:600px;
+    }
+    button.drumPad {
+        height: 200px;
+        width: 160px;
+        font-family: 'impact';
+        margin: 3px;
+        background-color: rgb(180,180,180);
+        font-size: 3em;
+        border-color: rgb(190,190,190);
+        border-style: outset;
+    }
+    
+    
+    
+        </style>
+    
+    
+        
+    </head>
+    <body id="mainBody" width="100%" height="100%">
+        
+        
+        <div class="Title-Image">
+            <img src="TitlePG.png" alt="Xma N Beatz" border="10" style="width:950px;">
+                </div>
+        
+        <div id="Header1" class="tab">
+            <a href="index.html">Looper</a>
+        </div>
+        <div id="Header2" class="tab">
+            
+            <a href="Learn.html">Learn</a>
+        </div>
+        <div id="Header3" class="tab">
+            <a href="MPC.html">MPC</a>
+        </div>
+        
+        
+        <div id="controlsArea">
+            <canvas nx="meter"></canvas>
+            <canvas nx="vinyl" label="Wiki Wiki"></canvas>
+            <canvas nx="slider" label="Pitch"></canvas>
+            <canvas nx="toggle" label="start/stop"></canvas>
+            <canvas nx="flip" label="flip"></canvas>
+        </div>
+        
+        
+        
+       
+        
+        <div id="padArea" width="40%" align: "left">
+            <h2>Trigger pads</h2>
+            <button id="pad1" class="drumPad">1</button>
+            <button id="pad2" class="drumPad">2</button>
+            <button id="pad3" class="drumPad">3</button>
+            <button id="pad4" class="drumPad">4</button>
+            <div id="lowerpads" align: "left">
+                <button id="pad5" class="drumPad">Q</button>
+                <button id="pad6" class="drumPad">W</button>
+                <button id="pad7" class="drumPad">E</button>
+                <button id="pad8" class="drumPad">R</button>
+            </div>
+            <div id="lower2pads" align: "left">
+            <button id="pad9" class="drumPad">A</button>
+            <button id="pad10" class="drumPad">S</button>
+            <button id="pad11" class="drumPad">D</button>
+            <button id="pad12" class="drumPad">F</button>
+            <div id="lower3pads" align: "left">
+                <button id="pad13" class="drumPad">Z</button>
+                <button id="pad14" class="drumPad">X</button>
+                <button id="pad15" class="drumPad">C</button>
+                <button id="pad16" class="drumPad">V</button>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div id="audioElements" width="40%">
+            <h2>Audio elements</h2>
+            <audio controls id="audio1"></audio>
+            <audio controls id="audio2"></audio>
+            <audio controls id="audio3"></audio>
+            <audio controls id="audio4"></audio>
+            <audio controls id="audio5"></audio>
+            <audio controls id="audio6"></audio>
+            <audio controls id="audio7"></audio>
+            <audio controls id="audio8"></audio>
+            <audio controls id="audio9"></audio>
+            <audio controls id="audio10"></audio>
+            <audio controls id="audio11"></audio>
+            <audio controls id="audio12"></audio>
+            <audio controls id="audio13"></audio>
+            <audio controls id="audio14"></audio>
+            <audio controls id="audio15"></audio>
+            <audio controls id="audio16"></audio>
+        </div>
+        
+        <script>
+            
+            var Loop1 = new Tone.Player("BoomBap_Loop_Drums.wav");
+            Loop1.loop = true;
+            Loop1.connect(Tone.Master);
+           
+        // when the nexus UI system loads we call this function
+        nx.onload = function() {
+            
+            // set default state of controls
+            vinyl1.defaultspeed = 0;
+            
+            // set event listener for all events on the vinyl control
+            vinyl1.on("*", vinylActions);
+            
+            // and event listener for all events on the toggle button
+            toggle1.on("*", toggleActions);
+            
+            // Pitch slider
+            slider1.on("*", sliderActions);
+            
+            // connect the nexus level meter to the ToneJS master output
+            meter1.setup(Tone.Master.context, Tone.Master.output);
+            
+            var players = []; // empty array
+            var pads = [];
+            
+            
+            for(var i=1; i<=16; i++) {
+                pads[i] = document.getElementById("pad" + i);
+                pads[i].addEventListener("mousedown", padActions);
+                
+                players[i] = document.getElementById("audio" + i);
+                players[i].src = "Hit" + i + ".wav";
+                players[i].load();
+            }
+            
+            
+            function keyActions(event){
+                var asciiCodeForKey = event.keyCode;
+                console.log("ascii code for key is: " + asciiCodeForKey);
+                switch (asciiCodeForKey) {
+                    case 49:
+                    console.log("which is the key labelled 1");
+                    players[1].currentTime = 0; //rewind audio
+                    players[1].play();
+                    break;
+                    
+                    case 50:
+                    console.log("which is the key labelled 2");
+                    players[2].currentTime = 0; //rewind audio
+                    players[2].play();
+                    break;
+                    
+                    case 51:
+                    players[3].currentTime = 0; //rewind audio
+                    players[3].play();
+                    console.log("which is the key labelled 3");
+                    break;
+                    
+                    case 52:
+                    players[4].currentTime = 0; //rewind audio
+                    players[4].play();
+                    console.log("which is the key labelled 4");
+                    break;
+                    
+                    case 113:
+                    console.log("which is the key labelled Q");
+                    players[5].currentTime = 0; //rewind audio
+                    players[5].play();
+                    break;
+                    
+                    case 119:
+                    console.log("which is the key labelled W");
+                    players[6].currentTime = 0; //rewind audio
+                    players[6].play();
+                    break;
+                    
+                    case 101:
+                    players[7].currentTime = 0; //rewind audio
+                    players[7].play();
+                    console.log("which is the key labelled E");
+                    break;
+                    
+                    case 114:
+                    players[8].currentTime = 0; //rewind audio
+                    players[8].play();
+                    console.log("which is the key labelled R");
+                    break;
+                    
+                    case 97:
+                    console.log("which is the key labelled A");
+                    players[9].currentTime = 0; //rewind audio
+                    players[9].play();
+                    break;
+                    
+                    case 115:
+                    console.log("which is the key labelled S");
+                    players[10].currentTime = 0; //rewind audio
+                    players[10].play();
+                    break;
+                    
+                    case 100:
+                    players[11].currentTime = 0; //rewind audio
+                    players[11].play();
+                    console.log("which is the key labelled D");
+                    break;
+                    
+                    case 102:
+                    players[12].currentTime = 0; //rewind audio
+                    players[12].play();
+                    console.log("which is the key labelled F");
+                    break;
+                    
+                    case 122:
+                    console.log("which is the key labelled Z");
+                    players[13].currentTime = 0; //rewind audio
+                    players[13].play();
+                    break;
+                    
+                    case 120:
+                    console.log("which is the key labelled X");
+                    players[14].currentTime = 0; //rewind audio
+                    players[14].play();
+                    break;
+                    
+                    case 99:
+                    players[15].currentTime = 0; //rewind audio
+                    players[15].play();
+                    console.log("which is the key labelled C");
+                    break;
+                    
+                    case 118:
+                    players[16].currentTime = 0; //rewind audio
+                    players[16].play();
+                    console.log("which is the key labelled V");
+                    break;
+                }
+            }
+            
+            // set the callback above to respond to keypress events
+            window.addEventListener("keypress", keyActions);
+            
+            function padActions(event){
+                var padThatWasClicked = event.target;
+                var padIndexInArray = pads.indexOf(padThatWasClicked);
+                
+                players[padIndexInArray].currentTime = 0; //rewind audio
+                players[padIndexInArray].play();
+            }
+            
+            
+            var audioContext;
+            if (window.AudioContext) {
+                audioContext = new window.AudioContext();
+            }
+            else if (window.webkitAudioContext) {
+                audioContext = new window.webkitAudioContext();
+            }
+        }
+        
+        // callback for actions on the vinyl control
+        var vinylActions = function(event) {
+            
+            // are we pushing forward?
+            if (vinyl1.val.speed > 0) {
+                Loop1.reverse = false;
+                Loop1.playbackRate = vinyl1.val.speed;
+            }
+            
+            // maybe pushing backwards?
+            else if (vinyl1.val.speed < 0 ) {
+                Loop1.reverse = true;
+                
+                // playback rate must be a positive number
+                Loop1.playbackRate = (-1 * vinyl1.val.speed);
+            }
+        }
+        
+        // callback for actions on the toggle button
+        var toggleActions = function(event) {
+            
+            // set the turntable to run or stop
+            // depending on the toggle button value
+            if (event.value == 1 ){
+                vinyl1.defaultspeed = 0.05;
+            }
+            else {
+                vinyl1.defaultspeed = 0;
+            }
+            
+            // if the sample player isn't running yet
+            if (Loop1.state == "stopped") {
+                Loop1.start();
+            }
+        }
+        
+        var sliderActions = function(event){
+            var Pitch = event.value/10;
+            vinyl1.defaultspeed = Pitch;
+        }
+        
+     
+            </script>
+        
+    </body>
+</html>
+
+
+
